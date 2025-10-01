@@ -1,0 +1,17 @@
+RBIF109 - Week 1 Homework Outputs
+Student: Domenic Storti
+
+[Q1] Edit distance example with Seq_a = ATGCC, Seq_b = ACGCT -> 2
+
+[Q2] in silico PCR (template=AAACTGATGCGTACGTTAGCATGACCTAGGCTAACGTTT, fwd=ATGCG, rev=AACT)
+     Amplicon: No product
+
+[Q3] Most frequent 3-mers across 3 sequences
+     Winners: [('ATG', 5)]
+     Total unique 3-mers counted: 10
+
+[Q4] Translating first in-frame ORF (ATG..stop) on + strand, frame 0
+     Complete ORFs found: 8 / 10
+     Example 1: protein length = 14 aa; protein head = 'MRTPSNGEAMLAWS'
+     Example 2: protein length = 22 aa; protein head = 'MWSISTIMNNTELSK'
+     Example 3: protein length = 6 aa; protein head = 'MTPPYS'

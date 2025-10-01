@@ -1,0 +1,83 @@
+RBIF109 - Week 1 Homework Write-up
+Author: Domenic Storti
+
+Execute Instructions
+------------------
+1) Make sure Python 3 is installed.
+2) From the command line, navigate to folder that contains:
+      - Domenic_Storti_RBIF109_HW1.py
+3) Run:
+      python Domenic_Storti_RBIF109_HW1.py
+4) The program prints a demo/debug log to the console and writes results to:
+      - Domenic_Storti_RBIF109_HW1_outputs.txt
+
+Function Descriptions
+------------------------------------------------------
+• edit_distance_equal_length(seq_a, seq_b)
+  - Computes the number of positions where the two sequences differ.
+  - Per the assignment, the definition only applies to sequences of the same length, so raise  
+    error if lengths differ.
+  - Utilizes for-loop over indices and keeps mismatch count.
+
+• reverse_complement(dna)
+  - Tool used by the PCR function. Maps A<->T and C<->G using a small dictionary, loops right-to-left,
+    and builds the reverse-complement string one character at a time.
+
+• in_silico_pcr(template_dna, primer_fwd, primer_rev)
+  - Finds the forward primer directly on the template, then finds the reverse complement of the reverse
+    primer on the same template, and checks that the forward site occurs before the reverse-complement site.
+  - If both are present in the correct orientation, it returns the substring that includes both primer
+    sequences. Otherwise, returns None.
+
+• most_frequent_kmer_in_list(seq_list, k)
+  - Counts all length‑k substrings across an entire list of sequences.
+  - Returns the set of most frequent k‑mers, plus the whole counts dictionary for reference.
+  - Uses a dictionary to tally counts and simple loops to iterate k‑length across each string.
+
+• translate_first_orf(dna)
+  - Scans for the first 'ATG' (start) in frame 0 on the + strand, then translates codons in steps of 
+    3 until a stop codon ('TAA','TAG','TGA') or end of string.
+  - Returns the amino-acid string. If no complete ORF is found, returns ''.
+  - Uses a provided dictionary for the standard genetic code.
+
+• simulate_random_dna(n)
+  -Tool that generates a random DNA string of length n using A/T/G/C only.
+
+Answers to Questions
+----------------------------------------
+[Q1] Edit distance of equal-length sequences:
+       Seq_a: A T G C C
+       Seq_b: A C G C T
+     Differences at positions 2 and 5 → distance = 2.
+
+[Q2] in‑silico PCR product:
+       1) Look for forward primer (5'→3') on the template.
+       2) Take reverse primer, reverse‑complement it, and look for that on the template downstream.
+       3) If both are found in that order, return the intervening substring including both primers.
+     In the event of edge cases:
+       - If either primer is missing → no product.
+       - If the reverse-complement site is upstream of the forward primer → no product.
+
+[Q3] Most frequent k‑mer across a list of sequences:
+     I extended the given single‑sequence function to accept a list. The code iterates over each sequence using 
+     a k‑long window, and tallies the counts in a dictionary. Finally, it returns all k‑mers with the
+     maximum count.
+
+[Q4] DNA → protein in‑silico translation:
+     A standard codon dictionary is used to translate the first +‑ strand (frame‑0) ORF that begins with 'ATG' and ends at a stop codon. 
+     For ten random 200 bp sequences, it reports how many have a complete ORF under these guidelines.
+     Compare with Expasy Translate:
+       - Expasy shows translation in all 6 reading frames, while this function uses only + strand,
+         frame 0, and only the first complete ORF. Because of this, differences are expected:
+           - Expasy may show an ORF in a different frame or on the reverse strand that this function ignores.
+           - Expasy will display '*' for stops; this function returns the peptide without the terminal '*'.
+           - If there's no complete 'ATG...stop' in frame 0 on the + strand, this function returns '' while
+             Expasy may still show ORFs in other frames.
+
+
+Files included
+--------------
+1) Domenic_Storti_RBIF109_HW1.py  —Python file with all four solutions.
+2) Domenic_Storti_RBIF109_HW1_outputs.txt — A small text report produced by running the script.
+3) This write-up (TXT).
+
