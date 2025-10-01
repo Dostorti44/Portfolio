@@ -124,10 +124,3 @@ If you use this pipeline, please cite the following tools in your publication:
 - fastp
 - DESeq2
 
-## License
-
-This pipeline is released under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
-For questions, suggestions, or contributions, please open an issue or pull request.
