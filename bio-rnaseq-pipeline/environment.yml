@@ -1,0 +1,27 @@
+name: rnaseq-pipeline
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - fastqc
+  - multiqc
+  - fastp
+  - star
+  - subread
+  - samtools
+  - pandas
+  - numpy
+  - matplotlib
+  - typer
+  - pyyaml
+  - r-base
+  - r-essentials
+  - r-deseq2
+  - r-ggplot2
+  - r-tidyverse
+  - rpy2
+  - pip:
+      - rich

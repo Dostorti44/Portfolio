@@ -1,0 +1,5 @@
+sample,condition,r1,r2
+A1,Treated,/absolute/path/A1_R1.fastq.gz,/absolute/path/A1_R2.fastq.gz
+A2,Treated,/absolute/path/A2_R1.fastq.gz,/absolute/path/A2_R2.fastq.gz
+B1,Control,/absolute/path/B1_R1.fastq.gz,/absolute/path/B1_R2.fastq.gz
+B2,Control,/absolute/path/B2_R1.fastq.gz,/absolute/path/B2_R2.fastq.gz
