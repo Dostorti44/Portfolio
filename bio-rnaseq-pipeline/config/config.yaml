@@ -1,0 +1,33 @@
+project: "rnaseq-demo"
+threads: 8
+outdir: "results"
+
+reference:
+  fasta: "refs/genome.fa"
+  gtf: "refs/genes.gtf"
+  star_index: "refs/star_index"
+
+fastp:
+  trim_front1: 0
+  trim_tail1: 0
+  cut_mean_quality: 20
+  length_required: 30
+
+star:
+  sjdb_overhang: 100
+  out_filter_mismatch_nmax: 10
+  out_sam_type: "BAM SortedByCoordinate"
+  quant_mode: ""
+
+featurecounts:
+  gtf_attr: gene_id
+  is_paired_end: true
+  strand: 0
+
+design:
+  formula: "~ condition"
+  ref_level: "Control"
+
+report:
+  volcano_padj: 0.05
+  volcano_lfc: 1.0
